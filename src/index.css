@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-800 font-sans;
+  }
+}
+
+@layer components {
+  .vintage-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg rounded-xl p-6 transition-all duration-300 hover:shadow-xl hover:scale-[1.02];
+  }
+  
+  .color-swatch {
+    @apply w-full h-32 rounded-xl transition-all duration-300 cursor-pointer relative overflow-hidden;
+  }
+  
+  .color-actions {
+    @apply absolute inset-0 bg-black/0 flex items-center justify-center opacity-0 transition-all duration-300;
+  }
+
+  .color-swatch:hover .color-actions {
+    @apply bg-black/20 opacity-100;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(-45deg, #f5f5f5, #f0f9ff, #fef2f2, #f0fdf4);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .vintage-btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-300 border border-amber-800/20 bg-amber-50/50 text-amber-900 hover:bg-amber-100/80 hover:shadow-md;
+  }
+  
+  .vintage-input {
+    @apply w-full px-4 py-2 rounded-lg border border-amber-200 bg-white/50 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all duration-300;
+  }
+}
